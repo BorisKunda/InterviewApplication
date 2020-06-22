@@ -8,8 +8,8 @@ import com.boriskunda.interviewapplication.utilities.SingleLiveEvent
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: Repository = Repository.instance
+    private val repository: Repository = Repository.getRepoInstance(application)
     private val someSLE: SingleLiveEvent<Boolean> = SingleLiveEvent()
-    private val app: Application = application
+
 
 }
