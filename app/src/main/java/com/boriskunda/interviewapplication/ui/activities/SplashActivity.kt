@@ -3,6 +3,7 @@ package com.boriskunda.interviewapplication.ui.activities
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -34,22 +35,28 @@ class SplashActivity : AppCompatActivity() {
         vm.moviesListLD.observe(this, Observer {
 
             if (it.isEmpty()) {
+                Log.e("observeViewModel: ", "D")
                 vm.loadMovies()
             } else {
                 areMoviesStoredInDb = true
+                Log.e("observeViewModel: ", "D")
             }
 
         })
     }
 
+
     private fun initCountDown() {
 
+        //todo maybe check if duration > 0
         countDownTimer = object : CountDownTimer(SPLASH_DURATION, SPLASH_COUNT_INTERVAL) {
             override fun onFinish() {
 
                 runOnUiThread {
 
                     if (areMoviesStoredInDb) {
+                        Log.e("observeViewModel: ", "D")
+
                         val intent = Intent(
                             this@SplashActivity,
                             MainActivity::class.java
@@ -58,6 +65,7 @@ class SplashActivity : AppCompatActivity() {
                         cancel()
                         finish()
                     } else {
+                        Log.e("observeViewModel: ", "D")
                         alertDialog.show()
                         cancel()
                     }
