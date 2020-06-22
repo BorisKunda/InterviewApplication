@@ -4,6 +4,7 @@ import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.boriskunda.interviewapplication.utilities.MOVIES_TABLE
+import com.google.gson.annotations.SerializedName
 
 
 //todo genres
@@ -14,6 +15,7 @@ class Movie(
     @PrimaryKey
     @NonNull
     val title:String,
-    val image:String,
+    @SerializedName("image")
+    val posterUrl:String,
     val rating:String,
     val releaseYear:String)
