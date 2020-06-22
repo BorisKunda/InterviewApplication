@@ -15,13 +15,13 @@ import com.squareup.picasso.Picasso
 
 class MovieDetailsFragment : Fragment() {
 
-    private val sharedViewModel: SharedViewModel by activityViewModels()//access ViewModel of activity,which fragment associates with
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_movie_details_ll, container, false)
     }
 

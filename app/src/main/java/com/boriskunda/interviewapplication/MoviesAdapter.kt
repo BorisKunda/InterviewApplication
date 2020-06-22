@@ -3,16 +3,14 @@ package com.boriskunda.interviewapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.boriskunda.interviewapplication.model.Movie
 import com.squareup.picasso.Picasso
 
-//todo check if private is necessary
-class MoviesAdapter(private val onRVItemClickListener:OnRVItemClickListener) : RecyclerView.Adapter<MoviesAdapter.VH>() {
+class MoviesAdapter(private val onRVItemClickListener: OnRVItemClickListener) :
+    RecyclerView.Adapter<MoviesAdapter.VH>() {
 
     var moviesList: List<Movie> = mutableListOf()
 

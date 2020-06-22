@@ -1,7 +1,6 @@
 package com.boriskunda.interviewapplication
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -37,11 +36,7 @@ class Repository private constructor(application: Application) {
         fun getRepoInstance(application: Application): Repository {
 
             val instance: Repository by lazy { Repository(application) }
-            /**
-            The by lazy{}indicates it will be computed on the first access only.
-            The evaluation of lazy properties is synchronized, the value is computed only in one thread,
-            and all threads will see the same value.
-             */
+
             return instance
 
         }
@@ -59,8 +54,6 @@ class Repository private constructor(application: Application) {
                 val movies: Array<Movie> =
                     Gson().fromJson(it.toString(), Array<Movie>::class.java)
 
-                Log.DEBUG
-
                 executor.execute {
                     movieDao.insertAll(movies.toList())
                 }
@@ -68,7 +61,7 @@ class Repository private constructor(application: Application) {
             },
 
             Response.ErrorListener {
-                //TODO "to be implemented"
+                //todo - take care of error responses
             }
         ).let {
             volleyRequestQueue.add(it)

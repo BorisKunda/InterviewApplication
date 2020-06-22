@@ -7,9 +7,6 @@ import com.boriskunda.interviewapplication.utilities.MOVIES_TABLE
 import com.google.gson.annotations.SerializedName
 
 
-//todo genres
-//todo check if title can be val
-
 @Entity(tableName = MOVIES_TABLE)
 class Movie(
     @PrimaryKey

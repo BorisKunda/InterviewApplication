@@ -35,11 +35,9 @@ class SplashActivity : AppCompatActivity() {
         vm.moviesListLD.observe(this, Observer {
 
             if (it.isEmpty()) {
-                Log.e("observeViewModel: ", "D")
                 vm.loadMovies()
             } else {
                 areMoviesStoredInDb = true
-                Log.e("observeViewModel: ", "D")
             }
 
         })
@@ -48,7 +46,6 @@ class SplashActivity : AppCompatActivity() {
 
     private fun initCountDown() {
 
-        //todo maybe check if duration > 0
         countDownTimer = object : CountDownTimer(SPLASH_DURATION, SPLASH_COUNT_INTERVAL) {
             override fun onFinish() {
 

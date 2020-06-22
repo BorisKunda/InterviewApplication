@@ -20,8 +20,6 @@ abstract class MovieDatabase : RoomDatabase() {
 
         fun getMovieDatabase(application: Application): MovieDatabase {
 
-            Log.DEBUG
-
             val movieDatabase: MovieDatabase by lazy {
                 Room.databaseBuilder(
                     application,
@@ -29,8 +27,6 @@ abstract class MovieDatabase : RoomDatabase() {
                     DATABASE_NAME
                 ).build()
             }
-
-            Log.DEBUG
 
             return movieDatabase
 

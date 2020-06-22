@@ -15,15 +15,15 @@ import com.boriskunda.interviewapplication.model.Movie
 import com.boriskunda.interviewapplication.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_movies_list_ll.*
 
-class MoviesListFragment : Fragment(),MoviesAdapter.OnRVItemClickListener {
+class MoviesListFragment : Fragment(), MoviesAdapter.OnRVItemClickListener {
 
-    private val sharedViewModel: SharedViewModel by activityViewModels()//access ViewModel of activity,which fragment associates with
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_movies_list_ll, container, false)
     }
 
@@ -48,10 +48,10 @@ class MoviesListFragment : Fragment(),MoviesAdapter.OnRVItemClickListener {
     }
 
     override fun onRVItemClick(movie: Movie) {
-         sharedViewModel.apply {
-             setSelectedMovie(movie)
-             openDetailsScreen()
-         }
+        sharedViewModel.apply {
+            setSelectedMovie(movie)
+            openDetailsScreen()
+        }
     }
 
 }
