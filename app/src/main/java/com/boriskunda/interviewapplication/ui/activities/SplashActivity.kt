@@ -19,7 +19,6 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var countDownTimer: CountDownTimer
     private lateinit var alertDialog: AlertDialog
     private var areMoviesStoredInDb: Boolean = false
-    private var temp: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,6 @@ class SplashActivity : AppCompatActivity() {
                 runOnUiThread {
 
                     if (areMoviesStoredInDb) {
-                        Log.e("observeViewModel: ", "D")
 
                         val intent = Intent(
                             this@SplashActivity,
@@ -62,7 +60,6 @@ class SplashActivity : AppCompatActivity() {
                         cancel()
                         finish()
                     } else {
-                        Log.e("observeViewModel: ", "D")
                         alertDialog.show()
                         cancel()
                     }
@@ -95,6 +92,9 @@ class SplashActivity : AppCompatActivity() {
             setIcon(R.drawable.ic__error)
             setTitle(getString(R.string.Dialog_Title_Error))
             setMessage(getString(R.string.Dialog_Message_Error))
+            setCancelable(false)
+            setCanceledOnTouchOutside(false)
+
         }
 
     }
