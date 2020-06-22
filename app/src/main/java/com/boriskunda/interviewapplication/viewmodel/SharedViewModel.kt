@@ -12,13 +12,22 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
 
 
     private val repository: Repository = Repository.getRepoInstance(application)
-
-    //private val someSLE: SingleLiveEvent<Boolean> = SingleLiveEvent()
-
+    private val openDetailsScreenSLE: SingleLiveEvent<Boolean> = SingleLiveEvent()
+    private val selectedMovieMLD: MutableLiveData<Movie> = MutableLiveData()
+    val selectedMovieLD: LiveData<Movie> = selectedMovieMLD
+    val openDetailsScreenLD: LiveData<Boolean> = openDetailsScreenSLE
     val moviesListLD: LiveData<List<Movie>> = repository.moviesList
 
     fun loadMovies() {
         repository.loadMoviesFromServer()
+    }
+
+    fun setSelectedMovie(movie: Movie) {
+        selectedMovieMLD.value = movie
+    }
+
+    fun openDetailsScreen() {
+        openDetailsScreenSLE.call()
     }
 
 }

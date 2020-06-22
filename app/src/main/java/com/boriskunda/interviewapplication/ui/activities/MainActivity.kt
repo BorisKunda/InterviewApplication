@@ -4,8 +4,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import com.boriskunda.interviewapplication.R
+import com.boriskunda.interviewapplication.ui.fragments.MovieDetailsFragment
 import com.boriskunda.interviewapplication.ui.fragments.MoviesListFragment
 import com.boriskunda.interviewapplication.viewmodel.SharedViewModel
 
@@ -17,14 +19,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_ll)
 
-        observeViewModel(sharedViewModel)
-
         replaceFr(MoviesListFragment())
+        observeViewModel(sharedViewModel)
 
 
     }
 
-    private fun observeViewModel(viewModel: ViewModel) {
+    private fun observeViewModel(sharedVM:SharedViewModel) {
+
+        sharedVM.openDetailsScreenLD.observe(this, Observer {
+            replaceFrWithBackStack(MovieDetailsFragment())
+        })
 
     }
 

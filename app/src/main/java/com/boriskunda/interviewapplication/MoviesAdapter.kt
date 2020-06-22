@@ -3,15 +3,16 @@ package com.boriskunda.interviewapplication
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.boriskunda.interviewapplication.model.Movie
 import com.squareup.picasso.Picasso
 
-//todo list sort by release year
-
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.VH>() {
+//todo check if private is necessary
+class MoviesAdapter(private val onRVItemClickListener:OnRVItemClickListener) : RecyclerView.Adapter<MoviesAdapter.VH>() {
 
     var moviesList: List<Movie> = mutableListOf()
 
@@ -42,10 +43,15 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.VH>() {
         Picasso.get().load(movie.posterUrl).placeholder(R.drawable.ic_movie_place_holder)
             .error(R.drawable.ic_place_holder_error).into(holder.moviePosterIV)
 
+        holder.itemView.setOnClickListener {
+            Toast.makeText(it.context, movie.title, Toast.LENGTH_SHORT).show()
+            onRVItemClickListener.onRVItemClick(movie)
+        }
+
     }
 
     interface OnRVItemClickListener {
-        //fun onRVItemClick(test: TestObj)
+        fun onRVItemClick(movie: Movie)
     }
 
 }

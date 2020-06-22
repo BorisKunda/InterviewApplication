@@ -1,4 +1,4 @@
-package com.boriskunda.interviewapplication.test.test;
+package com.boriskunda.interviewapplication.test;
 
 class TestJClass {
 }

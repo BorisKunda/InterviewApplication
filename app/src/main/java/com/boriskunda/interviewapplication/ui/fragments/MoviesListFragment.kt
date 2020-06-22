@@ -11,10 +11,11 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.boriskunda.interviewapplication.MoviesAdapter
 import com.boriskunda.interviewapplication.R
+import com.boriskunda.interviewapplication.model.Movie
 import com.boriskunda.interviewapplication.viewmodel.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_movies_list_ll.*
 
-class MoviesListFragment : Fragment() {
+class MoviesListFragment : Fragment(),MoviesAdapter.OnRVItemClickListener {
 
     private val sharedViewModel: SharedViewModel by activityViewModels()//access ViewModel of activity,which fragment associates with
 
@@ -29,7 +30,7 @@ class MoviesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val moviesAdapter = MoviesAdapter()
+        val moviesAdapter = MoviesAdapter(this)
 
         movies_rv.apply {
             layoutManager = LinearLayoutManager(context)
@@ -44,6 +45,13 @@ class MoviesListFragment : Fragment() {
             }
         })
 
+    }
+
+    override fun onRVItemClick(movie: Movie) {
+         sharedViewModel.apply {
+             setSelectedMovie(movie)
+             openDetailsScreen()
+         }
     }
 
 }
