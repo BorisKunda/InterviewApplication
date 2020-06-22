@@ -1,7 +1,6 @@
 package com.boriskunda.interviewapplication
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -12,11 +11,15 @@ import com.boriskunda.interviewapplication.database.MovieDao
 import com.boriskunda.interviewapplication.database.MovieDatabase
 import com.boriskunda.interviewapplication.model.Movie
 import com.boriskunda.interviewapplication.utilities.GET_ALL_COUNTRIES_URL
+import com.google.gson.Gson
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 class Repository private constructor(application: Application) {
 
     private val volleyRequestQueue: RequestQueue
     private val movieDao: MovieDao
+    private val executor: ExecutorService
     val moviesList: LiveData<List<Movie>>
 
     init {
@@ -24,6 +27,7 @@ class Repository private constructor(application: Application) {
         movieDao = db.movieDao()
         moviesList = movieDao.getMoviesList()
         volleyRequestQueue = Volley.newRequestQueue(application)
+        executor = Executors.newSingleThreadExecutor()
     }
 
 
@@ -50,10 +54,19 @@ class Repository private constructor(application: Application) {
             null,
 
             Response.Listener {
-                Log.e("loadMoviesFromServer: ", "json:$it")
+
+                val movies: Array<Movie> =
+                    Gson().fromJson(it.toString(), Array<Movie>::class.java)
+
+                executor.execute {
+                    movieDao.insertAll(movies.toList())
+                }
+
             },
 
-            Response.ErrorListener { TODO("to be implemented")}
+            Response.ErrorListener {
+                //TODO "to be implemented"
+            }
         ).let {
             volleyRequestQueue.add(it)
         }
