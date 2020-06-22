@@ -26,7 +26,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:gravity="center_vertical"
@@ -38,6 +38,7 @@
             android:src="@drawable/ic_calendar" />
 
         <TextView
+            android:gravity="center_vertical"
             android:id="@+id/movie_details_date_tv"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -53,9 +54,10 @@
             android:src="@drawable/ic_star" />
 
         <TextView
+            android:gravity="center_vertical"
             android:id="@+id/movie_details_rating_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:textColor="@color/black"
             android:textSize="16sp"
