@@ -5,4 +5,8 @@
     <string name="test_text_short">test</string>
     <string name="test_text">test test</string>
     <string name="test_text_long">test test test</string>
+    <string name="Dialog_Title_Error">Error</string>
+    <string name="Dialog_Message_Error">Something wrong please try again</string>
+    <string name="Dialog_Positive_Button_Text">RETRY</string>
+    <string name="Dialog_Negative_Button_Text">CLOSE</string>
 </resources>
