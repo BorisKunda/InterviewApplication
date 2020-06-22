@@ -34,11 +34,13 @@ class MovieDetailsFragment : Fragment() {
                 val title: TextView = view.findViewById(R.id.movie_details_title_tv)
                 val releaseDate: TextView = view.findViewById(R.id.movie_details_date_tv)
                 val rating: TextView = view.findViewById(R.id.movie_details_rating_tv)
-                val poster:ImageView = view.findViewById(R.id.movie_details_poster_iv)
+                val genres: TextView = view.findViewById(R.id.movie_details_genres_tv)
+                val poster: ImageView = view.findViewById(R.id.movie_details_poster_iv)
 
                 title.text = it.title
                 releaseDate.text = it.releaseYear
                 rating.text = it.rating
+                genres.text = it.genresList.joinToString(", ")
 
                 Picasso.get().load(it.posterUrl).placeholder(R.drawable.ic_movie_place_holder)
                     .error(R.drawable.ic_place_holder_error).into(poster)

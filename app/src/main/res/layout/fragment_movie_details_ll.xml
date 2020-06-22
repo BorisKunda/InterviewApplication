@@ -13,47 +13,63 @@
         android:adjustViewBounds="true"
         android:src="@drawable/ic_movie_place_holder" />
 
-    <!--
-
-    movie_details
-
-    -->
-
     <TextView
         android:id="@+id/movie_details_title_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         tools:text="@string/test_text_long" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_date" />
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_calendar" />
 
         <TextView
             android:id="@+id/movie_details_date_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             tools:text="@string/test_text_long" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/ic_star" />
 
         <TextView
             android:id="@+id/movie_details_rating_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
             tools:text="@string/test_text_long" />
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/movie_details_genres_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        tools:text="@string/test_text_long" />
 
 </LinearLayout>
