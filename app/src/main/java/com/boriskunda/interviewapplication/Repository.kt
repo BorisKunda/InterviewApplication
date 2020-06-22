@@ -1,6 +1,7 @@
 package com.boriskunda.interviewapplication
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -57,6 +58,8 @@ class Repository private constructor(application: Application) {
 
                 val movies: Array<Movie> =
                     Gson().fromJson(it.toString(), Array<Movie>::class.java)
+
+                Log.DEBUG
 
                 executor.execute {
                     movieDao.insertAll(movies.toList())

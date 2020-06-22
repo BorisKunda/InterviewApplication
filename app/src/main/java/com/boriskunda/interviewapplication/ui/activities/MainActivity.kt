@@ -19,27 +19,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_ll)
 
-        replaceFr(MoviesListFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.fr_container, MoviesListFragment()).commit()
         observeViewModel(sharedViewModel)
-
 
     }
 
     private fun observeViewModel(sharedVM:SharedViewModel) {
 
+        //todo better animations
         sharedVM.openDetailsScreenLD.observe(this, Observer {
-            replaceFrWithBackStack(MovieDetailsFragment())
+            supportFragmentManager.beginTransaction().setCustomAnimations(//todo check default animations
+              R.anim.slide_in_right ,
+              R.anim.slide_out_left ,
+              R.anim.slide_in_left ,
+              R.anim.slide_out_right
+            ).replace(R.id.fr_container, MovieDetailsFragment()).addToBackStack(null).commit()
         })
 
-    }
-
-    private fun replaceFr(fr: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fr_container, fr).commit()
-    }
-
-    private fun replaceFrWithBackStack(fr: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.fr_container, fr)
-            .addToBackStack(null).commit()
     }
 
 }

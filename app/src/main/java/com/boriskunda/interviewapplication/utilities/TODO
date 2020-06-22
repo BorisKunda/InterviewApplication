@@ -1,7 +1,4 @@
 genres
-0.Design : make splash screen better make gradient
-0.5 Animations : Between Screens, rv
-1.Add navigation component
-2.Add data-binding
-3.Consider coroutines instead Executor Interface
-4.Consider Generics
+Design :Details - 1h, List, Splash
+Add navigation -1h-Extra
+Add data-binding -1h-Extra

@@ -14,8 +14,11 @@ import com.google.gson.annotations.SerializedName
 class Movie(
     @PrimaryKey
     @NonNull
-    val title:String,
+    val title: String,
     @SerializedName("image")
-    val posterUrl:String,
-    val rating:String,
-    val releaseYear:String)
+    val posterUrl: String,
+    val rating: String,
+    val releaseYear: String,
+    @SerializedName("genre")
+    val genresList: List<String>
+)

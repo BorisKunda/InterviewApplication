@@ -44,7 +44,6 @@ class MoviesAdapter(private val onRVItemClickListener:OnRVItemClickListener) : R
             .error(R.drawable.ic_place_holder_error).into(holder.moviePosterIV)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(it.context, movie.title, Toast.LENGTH_SHORT).show()
             onRVItemClickListener.onRVItemClick(movie)
         }
 
