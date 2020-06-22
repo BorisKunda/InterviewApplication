@@ -1,0 +1,15 @@
+<resources>
+    <!-- Base application theme. -->
+
+    <!-- no action bar -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!--makes status bar icons dark-->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+</resources>

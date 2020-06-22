@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InterviewApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_text_short">test</string>
+    <string name="test_text">test test</string>
+    <string name="test_text_long">test test test</string>
+</resources>
